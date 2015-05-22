@@ -21,8 +21,8 @@ struct CompareHeights
     bool operator()(long p, long q)
     {
         return
-            heights[p/length][p%length] >
-            heights[q/length][q%length];
+            heights[p%length][p/length] >
+            heights[q%length][q/length];
     }
     int width, length;
     int **heights;
