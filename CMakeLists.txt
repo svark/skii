@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 2.6)
+project(skii)
+if (UNIX )
+  add_definitions(-lstdc++)
+endif()  
+add_executable(skii skii.cpp)
+enable_testing()
+add_test(skii skii)
