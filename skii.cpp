@@ -43,8 +43,10 @@ void findSkiiPath( int width, int length,
         len(width*length, 0);
 
     static bool debug = false;
+    int numIter = 0;
     while(unvisitedNodes.size()) {
 
+        ++numIter;
         std::set<long> levelSetAtMinHeight;
         int minHeight = INT_MAX;
         std::set<long>::iterator it = unvisitedNodes.begin();
@@ -77,7 +79,11 @@ void findSkiiPath( int width, int length,
             toVisit.push(*it);
             unique.insert(*it);
         }
-		std::cout << '.';
+        std::cout << '.';
+        if(numIter % 80==0)
+             std::cout << "\n";
+
+        std::cout.flush();
         while(toVisit.size())
         {
             assert(toVisit.size()<  (unsigned int)width*length );
